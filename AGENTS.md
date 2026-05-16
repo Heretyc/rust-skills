@@ -2,6 +2,34 @@
 
 > For OpenAI Codex and compatible agents
 
+## CRITICAL: Rust-Router First
+
+For ANY Rust-related question, ALWAYS invoke `rust-router` skill FIRST.
+Do NOT exclusively use WebSearch for Rust questions, answer from memory without invoking
+skill, or skip to specialized skills without checking router.
+
+Triggers: Rust/cargo/crate/rustc/Cargo.toml, error codes E0XXX, code writing
+requests in Rust, ANY question while in a Rust project (*.rs, Cargo.toml).
+
+## Negotiation Protocol
+
+When query contains comparisons, best practices, domain+error combos, or 2+
+technologies: invoke rust-router FIRST, then include Negotiation Analysis with
+Query Type, Source Assessment (confidence/gaps/coverage), and Synthesized Answer.
+
+## Agent Priority
+
+After invoking skills, use these agents for live data:
+
+| Need | Agent |
+|------|-------|
+| Rust release info | rust-changelog |
+| Crate version/info | crate-researcher |
+| API documentation | docs-researcher |
+| Clippy lint details | clippy-researcher |
+
+Fallback to WebSearch ONLY if all agents fail.
+
 ## Default Project Settings
 
 When creating Rust projects or Cargo.toml files, ALWAYS use:
